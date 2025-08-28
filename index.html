@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Arhitectura (te-am pacalit!)</title>
+    <link rel="preload" href="styles.css" as="style" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="icon" type="image/png" href="icon.png" />
+  </head>
+  <body>
+    <header class="hero">
+      <h2>
+        Acesta nu este chiar un site despre arhitectura iar eu nu sunt vreun
+        arhitect sub acoperire, dar cred ca am pus o fundatie solida impreuna.
+      </h2>
+      <h3 style="color: rgb(161, 169, 159)">
+        Sa rememoram cativa dintre pilonii ei, dar mai intai te invit sa apesi
+        butonul de mai jos:
+      </h3>
+
+      <!-- Play/Pause button -->
+      <button
+        id="music-toggle"
+        class="music-toggle"
+        aria-pressed="false"
+        aria-label="Play background music"
+      >
+        🎵 Play me before anything else
+      </button>
+    </header>
+
+    <main class="timeline" id="timeline" aria-label="Memories timeline">
+      <!-- JS will render entries here -->
+    </main>
+
+    <audio id="bg-music" preload="auto" loop>
+      <source src="vampires.mp3" type="audio/mpeg" />
+    </audio>
+
+    <div class="hero">
+      <h2>Draga Cristiana,</h2>
+      <h3 style="text-align: left">
+        Acum ca am parcurs acest ultim an din nou, vreau sa iti transmit cateva
+        ganduri calde, din inima. Ai reprezentat deosebitul si frumosul in
+        aceasta lume zgomotoasa si de multe ori nedreapta. Am petrecut alaturi
+        de tine clipe minunate, in care imi aminteam ca viata chiar poate fi
+        frumoasa. Inocenta ochilor, dar si senzualitatea buzelor tale ma faceau
+        sa ma trezesc in fiecare zi intr-o fantezie. Una adevarata, palpabila.
+        Stiu ca nu a fost asa mereu, si ca traumele pe care le purtam cu noi
+        si-au facut simtita prezenta pe nesimtite, chiar in cele mai nepotrivite
+        momente. Stiu ca am suferit amandoi, ca poate nu am inteles unele
+        lucruri si ca ceea ce ne inchipuiam a decurs intr-un mod diferit. Dar
+        vreau sa te asigur ca pentru mine, a fost ceva magic, ceva aproape iesit
+        din sfera acestei lumi.
+      </h3>
+      <h3 style="text-align: left">
+        Iti vreau binele. Stiu ca in aceste momente lucrurile par confuze si
+        blurate, dar vreau sa am increderea si inocenta unui copil care priveste
+        pentru prima data marea. Ceea ce a fost intre noi nu seamana cu
+        definitia unei relatii oarecare. Simt ca a fost mai mult de atat, si ca
+        potentialul nostru nu are limite. Astept cu nerabdarea clipa in care vom
+        vorbi despre toate aceste lucruri si nu numai, privindu-ne direct in
+        ochi. Sunt sigur ca atunci multe dintre aceste neclaritati vor capata
+        culoare si sens.
+      </h3>
+      <h3 style="text-align: left">
+        Pana atunci, vreau sa stii ca nu te-am alungat din inima si din gand. Te
+        port in continuare cu drag si iubire, asa cum ti-am promis. Sper ca
+        aceste randuri sa te gaseasca cu bine.
+      </h3>
+      <h4 style="text-align: right">Cu drag, dragoste si sinceritate,</h4>
+      <h4 style="text-align: right">David a.k.a. "Pui"</h4>
+    </div>
+    <script src="script.js" defer></script>
+  </body>
+</html>

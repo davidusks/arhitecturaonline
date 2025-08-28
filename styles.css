@@ -1,0 +1,160 @@
+:root {
+  --maxw: 1100px;
+  --pad: 16px;
+  --gap: clamp(16px, 3vw, 32px);
+
+  /* Forest palette — light mode */
+  --bg: #fbfdfb; /* off-white with a hint of green */
+  --ink: #0f2216; /* deep forest text */
+  --muted: #4d6a57; /* desaturated green for secondary text */
+  --card: #f1f6f2; /* light card panel */
+  --accent: #1b5e20; /* forest green */
+  --accent-weak: #a7d3b0; /* pale leaf */
+  --radius: 14px;
+  --shadow: 0 6px 24px rgba(16, 46, 28, 0.12);
+  color-scheme: light dark;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* Forest palette — dark mode */
+    --bg: rgb(24, 24, 24); /* very dark green */
+    --ink: #e9f3ea; /* light text */
+    --muted: #a5c1af; /* softer green-gray */
+    --card: #21432d; /* dark card panel */
+    --accent: #2e7d32; /* slightly brighter forest for dark bg */
+    --accent-weak: #254c2e; /* subtle borders/fills */
+    --shadow: 0 6px 24px rgba(0, 0, 0, 0.35);
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  font: 16px/1.6 system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial,
+    "Apple Color Emoji", "Segoe UI Emoji";
+  background: var(--bg);
+  color: var(--ink);
+}
+
+.hero {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 72px var(--pad) 32px;
+  text-align: center;
+}
+.hero h1 {
+  margin: 0 0 8px;
+  font-size: clamp(28px, 5vw, 48px);
+  letter-spacing: 0.3px;
+}
+.tagline {
+  margin: 0 auto;
+  max-width: 60ch;
+  color: var(--muted);
+}
+
+.timeline {
+  max-width: var(--maxw);
+  margin: 0 auto 96px;
+  padding: 0 var(--pad);
+  display: grid;
+  gap: var(--gap);
+}
+
+/* Entry layout */
+.entry {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--gap);
+  align-items: center;
+}
+
+.media,
+.content {
+  background: var(--card);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: clip;
+}
+
+.media figure {
+  margin: 0;
+  display: grid;
+}
+.media img {
+  width: 100%;
+  height: auto;
+  display: block;
+  aspect-ratio: 4/3; /* tweak to your photos */
+  object-fit: cover;
+}
+.media figcaption {
+  padding: 10px 14px;
+  font-size: 14px;
+  color: var(--muted);
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.content {
+  padding: clamp(16px, 3vw, 28px);
+}
+.content p {
+  margin: 0;
+  font-size: clamp(16px, 2.2vw, 18px);
+}
+
+/* Alternate sides: even rows flip columns */
+.entry:nth-child(even) .media {
+  order: 2;
+}
+.entry:nth-child(even) .content {
+  order: 1;
+}
+
+/* Mobile: stack nicely */
+@media (max-width: 800px) {
+  .entry {
+    grid-template-columns: 1fr;
+  }
+  .entry .media,
+  .entry .content {
+    order: initial;
+  }
+  .media img {
+    aspect-ratio: 16/10;
+  }
+}
+
+.music-toggle {
+  appearance: none;
+  border: 0;
+  padding: 10px 14px;
+  border-radius: 999px;
+  font: inherit;
+  cursor: pointer;
+  background: linear-gradient(135deg, #1b5e20, #2e7d32);
+  color: #fff;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.18);
+  transition: transform 120ms ease, box-shadow 120ms ease, opacity 120ms ease;
+}
+.music-toggle:hover {
+  transform: translateY(-1px);
+}
+.music-toggle:active {
+  transform: translateY(0);
+}
+.music-toggle[aria-pressed="true"] {
+  background: linear-gradient(135deg, #2e7d32, #1b5e20);
+}
+
+/* Optional: stick it to the corner instead of inside header
+.music-toggle {
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  z-index: 50;
+}
+*/
