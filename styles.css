@@ -107,11 +107,13 @@ body {
 }
 
 /* Alternate sides: even rows flip columns */
-.entry:nth-child(even) .media {
-  order: 2;
-}
-.entry:nth-child(even) .content {
-  order: 1;
+@media (min-width: 801px) {
+  .entry:nth-child(even) .media {
+    order: 2;
+  }
+  .entry:nth-child(even) .content {
+    order: 1;
+  }
 }
 
 /* Mobile: stack nicely */
@@ -119,9 +121,11 @@ body {
   .entry {
     grid-template-columns: 1fr;
   }
-  .entry .media,
+  .entry .media {
+    order: 1; /* always image first */
+  }
   .entry .content {
-    order: initial;
+    order: 2; /* always description after */
   }
   .media img {
     aspect-ratio: 16/10;
